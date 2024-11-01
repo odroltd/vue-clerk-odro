@@ -1,5 +1,5 @@
 {
-  "name": "vue-clerk-nuxt",
+  "name": "@odroltd/vue-clerk-nuxt",
   "type": "module",
   "version": "0.0.0",
   "private": true,

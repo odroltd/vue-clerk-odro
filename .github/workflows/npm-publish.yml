@@ -8,5 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm publish
+        working-directory: ./packages/vue-clerk
         env:
           GITHUB_NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,5 @@
 {
-  "name": "vue-clerk",
+  "name": "@odroltd/vue-clerk",
   "type": "module",
   "version": "0.7.0",
   "description": "Unofficial Vue + Clerk integration.",
