@@ -23,3 +23,5 @@ apps/docs/.vitepress/cache
 .data
 .nuxt
 .nitro
+
+.history
