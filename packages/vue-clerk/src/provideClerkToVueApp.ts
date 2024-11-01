@@ -21,6 +21,9 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
 
 let initOptions: ClerkOptions | undefined
 
+// eslint-disable-next-line import/no-mutable-exports
+export let activeClerk: VueClerkInjectionKeyType
+
 export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions & { initialState?: InitialState }): IsomorphicClerk {
   const { initialState, publishableKey, Clerk: userInitializedClerk } = options
 
@@ -62,7 +65,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
 
   app.config.globalProperties.$clerk = clerk
 
-  app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
+  const injectionValues = {
     clerk,
     isClerkLoaded,
     authCtx,
@@ -70,7 +73,11 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
     sessionCtx,
     userCtx,
     organizationCtx,
-  })
+  }
+
+  app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, injectionValues)
+
+  activeClerk = injectionValues
 
   return clerk
 }

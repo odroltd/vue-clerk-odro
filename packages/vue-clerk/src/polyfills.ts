@@ -5,6 +5,8 @@
  * We are solving this in the SDK level to reduce setup steps.
  */
 if (typeof window !== 'undefined' && !window.global)
+  // eslint-disable-next-line ts/ban-ts-comment
+  // @ts-ignore
   window.global = typeof globalThis === 'undefined' ? window : globalThis
 
 export {}
